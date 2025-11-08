@@ -24,7 +24,7 @@ const createUser = async (req, res) => {
     //#swagger.tags-['Users']
     const user = {
         firstName: req.body.firstName,
-        lastName: req.body.lastsName,
+        lastName: req.body.lastName,
         email: req.body.email,
         favoriteColor: req.body.favoriteColor,
         birthday: req.body.birthday
@@ -43,7 +43,7 @@ const updateUser = async (req, res) => {
     const user = {
         userName: req.body.userName,
         email: req.body.email,
-        name: req.body.namae,
+        name: req.body.name,
         ipaddress: req.body.ipaddress
     };
     const response = await mongodb.getDatabase().db().collection('users').replaceOne({ _id: userId } , user);
