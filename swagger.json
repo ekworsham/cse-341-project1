@@ -5,10 +5,9 @@
     "description": "Users API",
     "version": "1.0.0"
   },
-  "host": "localhost:3000",
+  "host": "https://cse-341-project1-hwzl.onrender.com",
   "basePath": "/",
   "schemes": [
-    "http",
     "https"
   ],
   "paths": {
@@ -49,7 +48,7 @@
                 "firstName": {
                   "example": "any"
                 },
-                "lastsName": {
+                "lastName": {
                   "example": "any"
                 },
                 "email": {
