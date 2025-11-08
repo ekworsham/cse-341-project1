@@ -48,7 +48,7 @@ const updateUser = async (req, res) => {
         birthday: req.body.birthday
     };
     const response = await mongodb.getDatabase().db().collection('users').replaceOne({ _id: userId } , user);
-    if (response.modifyCount > 0) {
+    if (response.modifiedCount > 0) {
         res.status(204).send();
     } else {
         res.status(500).json(response.error || 'Some error occurred while updating the user.');
