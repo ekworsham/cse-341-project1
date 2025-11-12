@@ -7,28 +7,28 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 app.use((req, res, next) => {
-    // Correct header names and allow preflight requests
-    res.setHeader('Access-Control-Allow-Origin', '*');
-    res.setHeader(
-        'Access-Control-Allow-Headers',
-        'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
-    );
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  // Correct header names and allow preflight requests
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'Origin, X-Requested-With, Content-Type, Accept, Z-Key'
+  );
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
 
-    if (req.method === 'OPTIONS') {
-        // Short-circuit preflight requests
-        return res.sendStatus(204);
-    }
-    next();
+  if (req.method === 'OPTIONS') {
+    // Short-circuit preflight requests
+    return res.sendStatus(204);
+  }
+  next();
 });
 app.use('/', require('./routes'));
 
 mongodb.initDb((err) => {
-    if(err) {
-        console.log(err);
-    }
-    else {
-       app.listen(port, () => {console.log(`Database is listening and node running on port ${port}`)}); 
-    }
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port, () => {
+      console.log(`Database is listening and node running on port ${port}`);
+    });
+  }
 });
-
